@@ -1,11 +1,14 @@
+import 'package:economia_personal/features/navigation_bar/providers/navigation_bar_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 
-class NavigationMenuBar extends StatelessWidget {
+class NavigationMenuBar extends ConsumerWidget {
   const NavigationMenuBar({super.key});
 
-  void onTapped(BuildContext context, int index) {
+  void onTapped(BuildContext context, WidgetRef ref, int index) {
+    ref.read(navigationIndexNotifierProvider.notifier).setIndex(index);
     switch (index) {
       case 0:
         GoRouter.of(context).goNamed('overview');
@@ -24,10 +27,12 @@ class NavigationMenuBar extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currnetIndex = ref.watch(navigationIndexNotifierProvider);
+
     return BottomNavigationBar(
-      currentIndex: 0,
-      onTap: (index) => onTapped(context, index),
+      currentIndex: currnetIndex,
+      onTap: (index) => onTapped(context, ref, index),
       items: const [
         BottomNavigationBarItem(
             icon: Icon(Iconsax.eye), label: "Vista General"),
