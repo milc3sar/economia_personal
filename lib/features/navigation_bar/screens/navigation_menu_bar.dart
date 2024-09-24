@@ -37,7 +37,6 @@ class NavigationMenuBar extends StatelessWidget {
         BottomNavigationBarItem(
             icon: Icon(Iconsax.strongbox), label: "Herramientas"),
       ],
-      type: BottomNavigationBarType.fixed,
     );
   }
 }
