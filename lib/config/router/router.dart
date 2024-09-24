@@ -1,6 +1,6 @@
 import 'package:economia_personal/features/budget/screens/budget_screen.dart';
 import 'package:economia_personal/features/navigation_bar/screens/navigation_menu_bar.dart';
-import 'package:economia_personal/features/overview/screens/overview_widget.dart';
+import 'package:economia_personal/features/overview/screens/overview_screen.dart';
 import 'package:economia_personal/features/tools/screens/tools_screen.dart';
 import 'package:economia_personal/features/wallets/screens/wallets_screen.dart';
 import 'package:flutter/material.dart';

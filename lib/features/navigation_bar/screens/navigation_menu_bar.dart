@@ -28,10 +28,10 @@ class NavigationMenuBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final currnetIndex = ref.watch(navigationIndexNotifierProvider);
+    final currentIndex = ref.watch(navigationIndexNotifierProvider);
 
     return BottomNavigationBar(
-      currentIndex: currnetIndex,
+      currentIndex: currentIndex,
       onTap: (index) => onTapped(context, ref, index),
       items: const [
         BottomNavigationBarItem(
