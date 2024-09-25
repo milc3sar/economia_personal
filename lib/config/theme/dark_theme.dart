@@ -5,7 +5,7 @@ ThemeData buildDarkTheme() {
     brightness: Brightness.light,
     dividerColor: const Color(0xFFBDBDBD),
     scaffoldBackgroundColor: const Color(0xFF232031),
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
       foregroundColor: Colors.white,
     ),

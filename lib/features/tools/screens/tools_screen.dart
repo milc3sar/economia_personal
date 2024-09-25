@@ -5,11 +5,9 @@ class ToolsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Center(
-          child: Text('Tools'),
-        ),
+    return const Scaffold(
+      body: Center(
+        child: Text('Tools'),
       ),
     );
   }

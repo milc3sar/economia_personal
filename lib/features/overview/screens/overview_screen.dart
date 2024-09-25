@@ -18,7 +18,7 @@ class OverviewScreen extends ConsumerWidget {
     final tabIndex = ref.watch(tabBarControllerProvider);
 
     return Scaffold(
-      appBar: OverviewAppBar(),
+      appBar: const OverviewAppBar(),
       body: _buildBody(tabIndex),
       floatingActionButton: Align(
         alignment: Alignment.bottomCenter,
@@ -26,10 +26,9 @@ class OverviewScreen extends ConsumerWidget {
           width: double.infinity,
           margin: const EdgeInsets.symmetric(horizontal: 30.0),
           child: FloatingActionButton.extended(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             label: Text(localization.addTransaction),
             onPressed: () {
-              print("hola");
             },
           ),
         ),
@@ -41,28 +40,20 @@ class OverviewScreen extends ConsumerWidget {
   Widget _buildBody(TabOverviewOption tabIndex) {
     switch (tabIndex) {
       case TabOverviewOption.overview:
-        return Container(
-          child: const Center(
-            child: Text('Overview Screen'),
-          ),
+        return const Center(
+          child: Text('Overview Screen'),
         );
       case TabOverviewOption.expense:
-        return Container(
-          child: const Center(
-            child: Text('Expense Screen'),
-          ),
+        return const Center(
+          child: Text('Expense Screen'),
         );
       case TabOverviewOption.list:
-        return Container(
-          child: const Center(
-            child: Text('List Screen'),
-          ),
+        return const Center(
+          child: Text('List Screen'),
         );
       default:
-        return Container(
-          child: const Center(
-            child: Text('Overview Screen'),
-          ),
+        return const Center(
+          child: Text('Overview Screen'),
         );
     }
   }

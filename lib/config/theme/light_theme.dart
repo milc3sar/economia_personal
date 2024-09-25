@@ -5,10 +5,10 @@ ThemeData buildLightTheme() {
     brightness: Brightness.light,
     dividerColor: Colors.transparent,
     scaffoldBackgroundColor: const Color(0xFFfcfbff),
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
       foregroundColor: Colors.white,
-      titleTextStyle: const TextStyle(
+      titleTextStyle: TextStyle(
         fontSize: 16,
         fontFamily: 'Roboto',
       ),
