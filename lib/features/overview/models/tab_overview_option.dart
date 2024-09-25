@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 enum TabOverviewOption {
   overview,
   expense,
@@ -5,14 +8,14 @@ enum TabOverviewOption {
 }
 
 extension TabOptionExtension on TabOverviewOption {
-  String get label {
+  String label(BuildContext context) {
     switch (this) {
       case TabOverviewOption.overview:
-        return 'Vista General'.toUpperCase();
+        return AppLocalizations.of(context)!.overview.toUpperCase();
       case TabOverviewOption.expense:
-        return 'Gasto'.toUpperCase();
+        return AppLocalizations.of(context)!.expense.toUpperCase();
       case TabOverviewOption.list:
-        return 'Lista'.toUpperCase();
+        return AppLocalizations.of(context)!.list.toUpperCase();
     }
   }
 }

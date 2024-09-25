@@ -1,22 +1,23 @@
+import 'package:economia_personal/features/overview/models/tab_overview_option.dart';
 import 'package:economia_personal/features/overview/providers/tab_bar_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconsax/iconsax.dart';
-
-import '../../models/tab_overview_option.dart';
+import 'package:strings/strings.dart';
 
 class OverviewAppBar extends ConsumerStatefulWidget
     implements PreferredSizeWidget {
   const OverviewAppBar({super.key});
 
   @override
-  _OverviewAppBarState createState() => _OverviewAppBarState();
+  OverviewAppBarState createState() => OverviewAppBarState();
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight + 70);
 }
 
-class _OverviewAppBarState extends ConsumerState<OverviewAppBar>
+class OverviewAppBarState extends ConsumerState<OverviewAppBar>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
@@ -44,6 +45,7 @@ class _OverviewAppBarState extends ConsumerState<OverviewAppBar>
   @override
   Widget build(BuildContext context) {
     final tabIndex = ref.watch(tabBarControllerProvider);
+    final localization = AppLocalizations.of(context)!;
 
     return AppBar(
       automaticallyImplyLeading: false,
@@ -58,25 +60,25 @@ class _OverviewAppBarState extends ConsumerState<OverviewAppBar>
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(Iconsax.setting),
+          const Icon(Iconsax.setting),
           Text.rich(
             TextSpan(
-              text: "Vista General: ",
-              children: [
+              text: "${Strings.toCapitalised(localization.overview)}: ",
+              children: const [
                 TextSpan(
                   text: "Mi Hogar",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 WidgetSpan(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 3.0),
+                    padding: EdgeInsets.only(left: 3.0),
                     child: Icon(Iconsax.arrow_down_1, size: 21),
                   ),
                 ),
               ],
             ),
           ),
-          Icon(Iconsax.search_normal),
+          const Icon(Iconsax.search_normal),
         ],
       ),
       bottom: PreferredSize(
@@ -95,7 +97,7 @@ class _OverviewAppBarState extends ConsumerState<OverviewAppBar>
             tabAlignment: TabAlignment.center,
             controller: _tabController,
             tabs: TabOverviewOption.values
-                .map((tab) => Tab(text: tab.label))
+                .map((tab) => Tab(text: tab.label(context)))
                 .toList(),
           ),
         ),
